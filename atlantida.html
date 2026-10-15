@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project Atlântida — Matheus Silveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#060807; --bg-raised:#0d1210; --line:#1c2621;
+    --text:#d4e8d9; --text-dim:#7e9988;
+    --accent:#39ff6a; --accent-dim:#1f8f42; --accent-glow:rgba(57,255,106,.25);
+    --warn:#d4c53a;
+    --mono:'JetBrains Mono', monospace; --term:'Share Tech Mono', monospace;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, rgba(57,255,106,.025) 0px, rgba(57,255,106,.025) 1px, transparent 1px, transparent 3px),
+      radial-gradient(ellipse 1000px 600px at 20% -10%, rgba(57,255,106,.06), transparent 60%),
+      var(--bg);
+    color:var(--text); font-family:var(--mono); line-height:1.65;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  .back{display:block;padding:28px 0 0;font-size:13px;color:var(--text-dim);}
+  .back a{color:var(--accent-dim);}
+  .back a:hover{color:var(--accent);}
+
+  header.phead{padding:28px 0 40px;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12.5px;color:var(--text-dim);margin:0 0 14px;}
+  .eyebrow .prompt{color:var(--accent);}
+  h1{font-family:var(--term);font-size:clamp(28px,6vw,42px);margin:0 0 14px;font-weight:400;text-shadow:0 0 18px var(--accent-glow);}
+  .status{font-size:11px;padding:3px 10px;border-radius:2px;border:1px solid;display:inline-block;margin-bottom:16px;}
+  .status.priv{color:var(--text-dim);border-color:var(--line);}
+  .tagline{font-size:15px;color:var(--text-dim);max-width:60ch;margin:0;}
+
+  .no-shot{
+    margin:34px 0 0;
+    padding:40px 24px;
+    border:1px dashed var(--line);
+    border-radius:3px;
+    text-align:center;
+    color:var(--text-dim);
+    font-size:13px;
+  }
+
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;padding-bottom:64px;}
+  h2{font-size:13px;letter-spacing:0.04em;color:var(--text-dim);margin:0 0 18px;font-weight:500;}
+  h2 .prompt{color:var(--accent);}
+  p{font-size:14.5px;color:var(--text);max-width:64ch;margin:0 0 14px;}
+  p.dim{color:var(--text-dim);}
+
+  ul.checklist{list-style:none;margin:0;padding:0;}
+  ul.checklist li{font-size:14px;padding:6px 0;color:var(--text);}
+  ul.checklist li::before{content:"✓ ";color:var(--accent);}
+
+  ul.plain{margin:0;padding-left:18px;}
+  ul.plain li{font-size:14px;color:var(--text-dim);margin-bottom:6px;}
+  ul.plain li::marker{color:var(--warn);}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
+  .tag{font-size:11px;color:var(--accent);background:rgba(57,255,106,.07);border:1px solid var(--accent-dim);padding:2px 8px;border-radius:2px;}
+
+  .notice{border-left:2px solid var(--warn);background:var(--bg-raised);padding:14px 18px;font-size:13px;color:var(--text-dim);margin-top:4px;}
+  .notice strong{color:var(--warn);}
+
+  pre{background:var(--bg-raised);border:1px solid var(--line);padding:14px 16px;border-radius:3px;font-size:12px;overflow-x:auto;color:var(--text-dim);margin:0;}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back">← <a href="index.html">voltar ao portfólio</a></p>
+
+  <header class="phead">
+    <p class="eyebrow"><span class="prompt">$</span> cat project-atlantida/README.md</p>
+    <h1>Project Atlântida</h1>
+    <span class="status priv">em desenvolvimento · privado</span>
+    <p class="tagline">Automação pessoal em Node.js para centralizar informações acadêmicas da plataforma FIAP EAD, usando web scraping.</p>
+  </header>
+
+  <div class="no-shot">sem captura de tela disponível no momento — projeto ainda em construção</div>
+
+  <section>
+    <h2><span class="prompt">$</span> cat objetivo.txt</h2>
+    <p>Nasceu de uma vontade dupla: automatizar tarefas repetitivas da plataforma de estudos da FIAP e, ao mesmo tempo, praticar programação, automação e sistemas web na prática. A ideia central é fazer login automaticamente, coletar materiais e informações acadêmicas, e disponibilizar isso de forma organizada — sem precisar entrar na plataforma toda hora pra conferir o que mudou.</p>
+  </section>
+
+  <section>
+    <h2><span class="prompt">$</span> cat arquitetura.txt</h2>
+    <p class="dim">O projeto é modular, com responsabilidades separadas:</p>
+    <pre>project-atlantida/
+├── scraper/        → login, coleta de materiais, tarefas, provas
+├── data/           → data.json (estado do mês atual) + histórico mensal
+├── discord-bot/     → interface de consulta (planejado)
+└── ia/              → módulo de interpretação autônoma (planejado)</pre>
+  </section>
+
+  <section>
+    <h2><span class="prompt">$</span> cat funcionalidades.txt</h2>
+    <p class="dim" style="margin-bottom:10px;">Já implementado:</p>
+    <ul class="checklist">
+      <li>Login automatizado na plataforma FIAP EAD</li>
+      <li>Separação das funções do scraper em arquivos (login, materiais, JSON)</li>
+      <li>Leitura e escrita de dados em JSON</li>
+      <li>Acesso direto à página de materiais</li>
+      <li>Coleta dos nomes dos materiais e do percentual de progresso</li>
+      <li>Filtro de elementos duplicados entre os layouts desktop e mobile</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="prompt">$</span> cat em_desenvolvimento.txt</h2>
+    <ul class="plain">
+      <li>Associação definitiva entre material, progresso e link</li>
+      <li>Estrutura completa do data.json (tarefas, reuniões, provas)</li>
+      <li>Arquivamento mensal automático do histórico</li>
+      <li>Bot do Discord para consulta das informações</li>
+      <li>Módulo de interpretação da página via IA, reduzindo dependência de seletores fixos</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="prompt">$</span> cat stack.txt</h2>
+    <div class="tags">
+      <span class="tag">Node.js</span>
+      <span class="tag">Puppeteer</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">JSON</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="prompt">$</span> cat aviso.txt</h2>
+    <div class="notice">
+      <strong>Por que é privado:</strong> o projeto interage com minha própria conta institucional e ainda está em fase experimental. Credenciais e tokens ficam fora do código-fonte, via variáveis de ambiente — mas, enquanto o scraper não estiver maduro e documentado, prefiro manter o repositório fechado.
+    </div>
+  </section>
+</div>
+</body>
+</html>
