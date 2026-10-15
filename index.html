@@ -45,10 +45,6 @@
   header.hero{
     padding:88px 0 52px;
     border-bottom:1px solid var(--line);
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:40px;
-    align-items:start;
   }
   .hero-text{min-width:0;}
   .eyebrow{font-size:13px;color:var(--text-dim);margin:0 0 18px;}
@@ -92,30 +88,6 @@
   }
   .btn:hover{background:var(--accent);color:#04120a;text-decoration:none;box-shadow:0 0 16px var(--accent-glow);}
 
-  .photo-frame{
-    width:168px;
-    flex-shrink:0;
-    border:1px solid var(--accent-dim);
-    padding:6px;
-    background:var(--bg-raised);
-    position:relative;
-  }
-  .photo-frame::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border:1px solid var(--line);
-    pointer-events:none;
-  }
-  .photo-frame img{
-    display:block;
-    width:100%;
-    height:auto;
-    filter:grayscale(1) contrast(1.15) brightness(.95) sepia(.3) hue-rotate(60deg) saturate(2);
-    opacity:.92;
-  }
-  .photo-caption{font-size:10.5px;color:var(--text-dim);margin-top:8px;text-align:center;letter-spacing:0.03em;}
-
   section{padding:54px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
 
@@ -129,6 +101,17 @@
   h2 .prompt{color:var(--accent);}
 
   p.lede{max-width:65ch;color:var(--text-dim);font-size:14px;margin:0 0 28px;}
+
+  .subhead{
+    font-size:12.5px;
+    color:var(--text-dim);
+    margin:0 0 4px;
+    padding-top:22px;
+  }
+  .subhead:first-of-type{padding-top:0;}
+  .subhead .prompt{color:var(--accent-dim);}
+  .subhead .target{color:var(--accent);}
+  .subhead .for-who{color:var(--text-dim);}
 
   .project{
     display:grid;
@@ -182,7 +165,6 @@
 
   @media (max-width:640px){
     header.hero{grid-template-columns:1fr;padding:64px 0 40px;}
-    .photo-frame{width:128px;order:-1;}
     section{padding:40px 0;}
     .project, .role-item{grid-template-columns:1fr;}
     .status{width:fit-content;}
@@ -212,15 +194,13 @@
         <a class="btn" href="Curriculo_Matheus_Silveira_Dev_Backend.pdf" download>↓ cv_dev_backend.pdf</a>
       </div>
     </div>
-    <div class="photo-frame">
-      <img src="matheus-photo.png" alt="Retrato de Matheus Silveira">
-      <p class="photo-caption">matheus.silveira</p>
-    </div>
   </header>
 
   <section id="projetos">
     <h2><span class="prompt">$</span> ls ./projetos</h2>
-    <p class="lede">Projetos pessoais e uma ferramenta em uso real no meu trabalho atual.</p>
+    <p class="lede">Projetos pessoais e uma ferramenta em uso real no meu trabalho atual — separados por área, pra ir direto ao que importa.</p>
+
+    <p class="subhead"><span class="prompt">$</span> cd <span class="target">./infra-suporte</span> <span class="for-who">— redes, automação, sistemas</span></p>
 
     <div class="project">
       <h3>tecfreeze/</h3>
@@ -228,6 +208,16 @@
       <p class="desc">Automação em Python que gerencia o Unified Write Filter em computadores Windows de laboratórios de informática. Identifica o ambiente por IP e hostname, executa comandos administrativos via subprocess e tem interface CLI e arquitetura modular. Em uso diário — código privado por rodar em máquinas de produção do meu trabalho.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">subprocess</span><span class="tag">CLI</span><span class="tag">Windows</span></div>
     </div>
+
+    <div class="project">
+      <h3>nexus-netra/</h3>
+      <span class="status live">v1 pronta · recebendo updates</span>
+      <p class="desc">Ferramenta de diagnóstico de rede que busca apontar possíveis causas de falha com base em evidências, não só reportar "offline". Cadastro de dispositivos via JSON e testes de ping com medição de latência e perda de pacotes já funcionando. Em evolução contínua: dashboard web e motor de diagnóstico por regras.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">ICMP</span><span class="tag">JSON</span></div>
+      <p class="project-link"><a href="https://github.com/Matheus-Silveiraa/NEXUS-NETRA" target="_blank" rel="noopener">→ github.com/Matheus-Silveiraa/NEXUS-NETRA</a></p>
+    </div>
+
+    <p class="subhead"><span class="prompt">$</span> cd <span class="target">./dev-backend</span> <span class="for-who">— web, API, bancos de dados</span></p>
 
     <div class="project">
       <h3>sunflower/</h3>
@@ -239,18 +229,9 @@
 
     <div class="project">
       <h3>project-atlantida/</h3>
-      <span class="status dev">em desenvolvimento</span>
-      <p class="desc">Automação em Node.js e Puppeteer que faz login na plataforma FIAP EAD e coleta materiais e progresso de leitura, salvando os dados em JSON. Arquitetura modular, com plano de expansão para coleta de tarefas, provas e um bot do Discord para consulta.</p>
+      <span class="status priv">em desenvolvimento · privado</span>
+      <p class="desc">Automação em Node.js e Puppeteer que faz login na plataforma FIAP EAD e coleta materiais e progresso de leitura, salvando os dados em JSON. Arquitetura modular, com plano de expansão para coleta de tarefas, provas e um bot do Discord para consulta. Ainda em construção — código privado por enquanto.</p>
       <div class="tags"><span class="tag">Node.js</span><span class="tag">Puppeteer</span><span class="tag">JSON</span></div>
-      <p class="project-link">Em breve</p>
-    </div>
-
-    <div class="project">
-      <h3>nexus-netra/</h3>
-      <span class="status dev">em desenvolvimento</span>
-      <p class="desc">Ferramenta de diagnóstico de rede que busca apontar possíveis causas de falha com base em evidências, não só reportar "offline". Hoje já executa cadastro de dispositivos via JSON e testes de ping com medição de latência e perda de pacotes. Em construção: dashboard web e motor de diagnóstico por regras.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">ICMP</span><span class="tag">JSON</span></div>
-      <p class="project-link"><a href="https://github.com/Matheus-Silveiraa/NEXUS-NETRA" target="_blank" rel="noopener">→ github.com/Matheus-Silveiraa/NEXUS-NETRA</a></p>
     </div>
   </section>
 
